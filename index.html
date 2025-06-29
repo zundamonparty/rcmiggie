@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Robux Tax Calculator (Please Donate)</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #00ff88;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input {
+      width: 200px;
+    }
+
+    button {
+      background-color: #00ff88;
+      color: #000;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #00ff88;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Robux Tax Calculator</h1>
+
+  <label for="desiredRobux">How much Robux do you want to receive?</label><br>
+  <input type="number" id="desiredRobux" placeholder="e.g. 100"><br>
+
+  <button onclick="calculate()">Calculate Gamepass Price</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculate() {
+      const desired = parseFloat(document.getElementById("desiredRobux").value);
+      if (isNaN(desired) || desired <= 0) {
+        document.getElementById("result").innerText = "Please enter a valid number.";
+        return;
+      }
+      const price = Math.ceil(desired / 0.7);
+      document.getElementById("result").innerText =
+        `Set your Gamepass price to: ${price} Robux`;
+    }
+  </script>
+
+</body>
+</html>
